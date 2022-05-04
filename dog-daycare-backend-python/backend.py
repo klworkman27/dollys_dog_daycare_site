@@ -27,9 +27,23 @@ class All_Pets_Of_Owner(Resource):
         result = [dict(zip(tuple (query.keys()) ,i)) for i in query.cursor]
         return result
         #We can have PUT,DELETE,POST here. But in our API GET implementation is sufficient
+
+class Insert_Pet(Resource):
+    def get(self, owner_id):
+        args = request.args
+        name = args.get('name')
+        breed = args.get('breed')
+        gender = args.get('gender')
+
+        conn = e.connect()
+        statement = "insert into Pet(name, breed, gender, ownerId) VALUES (?, ?, ?, ?)"
+        conn.execute(statement, [name, breed, gender, owner_id])
+        # conn.commit()
+        return 'Pet Added.'
  
 api.add_resource(All_Owners, '/getAllOwners')
 api.add_resource(All_Pets_Of_Owner, '/getPetsOfOwner/<owner_id>')
+api.add_resource(Insert_Pet, '/insertpet/<owner_id>')
 
 """
 Enable CORS.

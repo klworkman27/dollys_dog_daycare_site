@@ -74,6 +74,15 @@ export function homepage({ownersList}){
                                 {p.name}, {p.breed}, {p.gender}
                         </div>
                     ))}
+                    <div className={styles.add_pet_container}>
+                        <div className={styles.add_pet_show_button}>
+                            Add A Pet
+                        </div>
+                        <div className={styles.add_pet_form_container}>
+                            
+                        </div>
+                        
+                    </div>
                 </div>
             </div>
 

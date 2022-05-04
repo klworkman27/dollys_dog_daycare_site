@@ -42,6 +42,7 @@
             padding: 1rem;
             background-color: #a378b6 ;
             border-radius: 3px;
+            border: solid 2px #42005e;
             position: relative;
             margin-bottom: .75rem;
             &:last-of-type{
@@ -53,11 +54,11 @@
             }
             &__selected{
                 background-color: #e5bdf7;
-                &:after{
+                &:before, &:after{
                     content:'';
                     position: absolute;
                     top: calc(50% - 24px);
-                    left: calc(100% - 38px);
+                    left: calc(100% - 33px);
                     width: 0;
                     height: 0;
                     border: 24px solid;
@@ -65,7 +66,13 @@
                     border-left-color: transparent;
                     border-right-color: #929feb;
                     border-bottom-color: transparent;
+                    z-index: 2;
+                }
+
+                &:before {
                     z-index: 1;
+                    left: calc(100% - 36px);
+                    border-right-color: #575f8f;
                 }
             }
         }
@@ -77,6 +84,7 @@
         // border: 1px black solid;
         border-radius: 3px;
         background-color: #929feb;
+        border: solid 2px #575f8f;
         .pet_details{
             padding: .5rem 0rem;
         }
